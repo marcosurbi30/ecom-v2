@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
+const products = require("./data/Products");
 
 //test route
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/api/products", (req, res) => {
+  res.json(products);
 });
 
 const PORT = process.env.PORT;
