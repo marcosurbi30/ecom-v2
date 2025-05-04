@@ -3,7 +3,12 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 const products = require("./data/Products");
+const mongoose = require("mongoose");
 
+//connect db
+mongoose.connect(process.env.MONGOOSEDB_RULc).then((err) => {
+  err;
+});
 //test route
 app.get("/api/products", (req, res) => {
   res.json(products);
