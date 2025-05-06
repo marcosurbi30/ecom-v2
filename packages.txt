@@ -1,7 +1,0 @@
-npm install bcryptjs dotenv express express-async-handler jsonwebtoken mongoose morgan concurrently nodemon
-
-
-
-//m37475950
-//2Aofx7NcXzvvhHrX
-// mongodb+srv://m37475950:2Aofx7NcXzvvhHrX@cluster0.m8qxlgo.mongodb.net/ECOM-2

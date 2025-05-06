@@ -1,12 +1,20 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
-import Nav from "../components/Nav.jsx";
+import App from "./App";
+import ProductDetail from "../src/pages/ProductDetail";
 
-createRoot(document.getElementById("root")).render(
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Nav />
-    <App />
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<App />}></Route>
+        <Route exact path="/detail" element={<ProductDetail />}></Route>
+      </Routes>
+    </Router>
   </StrictMode>
 );
+
+export default App;
