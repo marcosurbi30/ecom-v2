@@ -6,8 +6,9 @@ const products = require("./data/Products");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT;
 const databaseSeeder = require("./databaseSeeder");
-const User = require("./models/User");
+//const User = require("./models/User");
 const userRoute = require("./routes/User");
+const productRoute = require("./routes/Product");
 
 //connect db
 mongoose.connect(process.env.MONGOOSEDB_RULc).then((err) => {
@@ -21,8 +22,11 @@ app.get("/api/products", (req, res) => {
 //database
 app.use("/api/seed", databaseSeeder);
 
-//api/users/login
+//route for users
 app.use("/api/users", userRoute);
+
+//route for products
+app.use("/api/products", productRoute);
 
 app.listen(PORT || 3000, () => {
   console.log(`Server is running on port ${PORT}`);

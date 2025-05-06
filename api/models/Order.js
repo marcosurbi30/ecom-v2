@@ -1,22 +1,10 @@
 const mongoose = require("mongoose");
 
-const orderItemSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  qty: {
-    type: Number,
-    required: true,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
+const orderItemSchema = mongoose.Schema({
+  name: { type: String, required: true },
+  qty: { type: Number, required: true },
+  image: { type: String, required: true },
+  price: { type: Number, required: true },
   product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Product",
@@ -24,13 +12,9 @@ const orderItemSchema = new mongoose.Schema({
   },
 });
 
-const orderSchema = mongoose.Schema(
+const orderSchema = new mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
+    user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
     orderItems: [orderItemSchema],
     shippingAddress: {
       address: { type: String, required: true },
@@ -38,15 +22,11 @@ const orderSchema = mongoose.Schema(
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
     },
-    PaymentMethod: {
-      type: String,
-      required: true,
-      default: "PayPal",
-    },
-    paymentResults: {
+    paymentMethod: { type: String, required: true, default: "Paypal" },
+    paymentResult: {
       id: { type: String },
       status: { type: String },
-      update_time: { type: String },
+      updated_time: { type: String },
       email_address: { type: String },
     },
     taxPrice: {
